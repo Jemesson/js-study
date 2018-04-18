@@ -1,0 +1,14 @@
+{
+  "name": "js-learning",
+  "version": "1.0.0",
+  "description": "study js and ecmascript",
+  "main": "promises.js",
+  "scripts": {
+    "start": "node async-function.js"
+  },
+  "author": "jemesson_lima",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^2.1.2"
+  }
+}
