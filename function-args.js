@@ -7,7 +7,7 @@ function f(x, y = 12) {
 }
 
 function g(x, ...y) {
-    return x * y.length;
+    return x * y.length + 1;
 }
 
 function h(x, y, z) {
