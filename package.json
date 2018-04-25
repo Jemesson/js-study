@@ -1,14 +1,24 @@
 {
-  "name": "js-learning",
+  "name": "app",
   "version": "1.0.0",
-  "description": "study js",
-  "main": "promises.js",
+  "description": "",
+  "main": "app.js",
   "scripts": {
-    "start": "node async-function.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jemesson/js-study.git"
   },
   "author": "jemesson_lima",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jemesson/js-study/issues"
+  },
+  "homepage": "https://github.com/Jemesson/js-study#readme",
   "dependencies": {
-    "node-fetch": "^2.1.2"
+    "coffescript": "0.0.1-security",
+    "request": "^2.85.0"
   }
 }
