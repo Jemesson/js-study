@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Jemesson/js-study#readme",
   "dependencies": {
     "coffescript": "0.0.1-security",
+    "express": "^4.16.3",
     "request": "^2.85.0"
   }
 }
