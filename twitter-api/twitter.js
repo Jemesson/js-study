@@ -3,7 +3,6 @@ var config = require('./config');
 var express = require('express');
 var request = require('request');
 var url = require('url');
-var queryString = require('querystring');
 
 var app = express();
 
