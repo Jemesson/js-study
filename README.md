@@ -49,7 +49,7 @@ Coming soon.
 
 ## Contributing
 
-Feel free always to create a fork. Then notifce me opening a Pull Request.
+Feel free always to create a fork. Then notice me opening a Pull Request.
 
 ## Versioning
 
