@@ -58,8 +58,12 @@ io.on('connection', client => {
     });
 
     client.on('disconnect', (name) => {
-        client.broadcast.emit("remove-chatter", client.name);
-        redisClient.srem(chatterKey, client.name);
+        redisClient.smembers(chatterKey, (err, names) => {
+            if (names.length > 0) {
+                client.broadcast.emit("remove-chatter", client.name);
+                redisClient.srem(chatterKey, client.name);
+            }
+        });
     });
 
     client.on("flushall", () => {
