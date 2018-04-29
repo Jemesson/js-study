@@ -6,15 +6,29 @@
             form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
             form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
             form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+            #chat-console {
+                height: 420px;
+                overflow: auto;
+                padding: 1%;
+                border: 1px solid #ccc;
+            }
             #chat-messages { list-style-type: none; margin: 0; padding: 0; }
             #chat-messages li { padding: 5px 10px; }
             #chat-messages li:nth-child(odd) { background: #eee; }
+            #chatters {
+                width: 35%; max-width: 100px; margin: 0 2% 0 0; float: left; list-style: none;
+                border: 1px solid #ccc;
+            }
+            .connected {color: #8b0000;}
         </style>
     </head>
     <body>
-        <ul id="chat-messages"></ul>
-        <form action="">
-            <input id="message" autocomplete="say me your message" />
+        <ul id="chatters"></ul>
+        <div id="chat-console">
+            <ul id="chat-messages"></ul>
+        </div>
+        <form>
+            <input id="chat-input" name="chat-input" autocomplete="off" />
             <button>Send</button>
         </form>
     </body>
@@ -22,23 +36,38 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.0/socket.io.js"></script>
     <script>
         var socket = io();
-        socket.on("connect", data => {
-            nickname = prompt("Say me your nick");
-            socket.emit("join", nickname);
+        
+        socket.on("connect", data => {            
+            name = prompt("Please can you say me your name?");
+            socket.emit("join", name);
+            $("#chat-messages").html(
+                `<span class='connected'> ${name} is connected to the chat server</spanr><br/>`
+            );
         });
+
         $('form').submit(() => {
-            var msg = $("#message").val();
-            socket.emit("messages", msg);
-            $("#message").val("");
+            var msg = $("#chat-input").val();
+            if (msg === "flushall") {
+                socket.emit("flushall", msg);
+            } else {
+                socket.emit("messages", msg);
+            }
+            $("#chat-input").val("");
             return false;
         });
-        socket.on("message-name", msg => {
-            $('#chat-messages').append($('<li>').text(msg));
-            window.scrollTo(0, document.body.scrollHeight);
-        });
+        
         socket.on("messages", msg => {
             $('#chat-messages').append($('<li>').text(msg));
-            window.scrollTo(0, document.body.scrollHeight);
+                window.scrollTo(0, document.body.scrollHeight);
+        });
+            
+        socket.on("add-chatter", name => {
+            var chatter = $("<li class = 'connected'>"+ name + "</li>").data("name", name);
+            $("#chatters").append(chatter);
+        });
+        
+        socket.on("remove-chatter", name => {
+            $("#chatters li [data-name" + name + "]").remove();
         });
     </script>
 </html>
