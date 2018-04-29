@@ -59,7 +59,7 @@ We use [SemVer](http://semver.org/) for versioning.
 
 * **Jemesson Lima** - *Initial work* - [Jemesson](https://github.com/Jemesson)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/Jemesson/js-study/graphs/contributors) who participated in this project.
 
 ## License
 
@@ -72,3 +72,4 @@ This project is licensed under the MIT License
 
 ## Links
 * [Twitter Developer](https://developer.twitter.com/) - Twitter developer API.
+* [Redis](https://redis.io/) - Redis
