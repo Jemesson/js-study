@@ -19,7 +19,7 @@ app.get('/tweets/:name', (req, response) => {
     }
     var urlOptions = url.format(options);
     request(urlOptions, {oauth: config, json: true}, (err, res, data) => {
-        var tweets = data.statuses.map((item) => {
+        var tweets = data.statuses.map(item => {
             return item.text;     
         });
         response.locals = {tweets: tweets, name: name};
