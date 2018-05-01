@@ -58,7 +58,7 @@
         
         socket.on("messages", msg => {
             $('#chat-messages').append($('<li>').text(msg));
-                window.scrollTo(0, document.body.scrollHeight);
+            window.scrollTo(0, document.body.scrollHeight);
         });
             
         socket.on("add-chatter", name => {
