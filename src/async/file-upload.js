@@ -10,7 +10,7 @@ http.createServer((request, response) => {
     var uploadedBytes = 0;
 
     request.on('readable', () => {
-        var buffer = null;
+        let buffer = "";
         while ((buffer = request.read()) !== null) {
             uploadedBytes += buffer.length;
             var progress = (uploadedBytes / fileLength) * 100;

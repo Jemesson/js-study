@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "sonarlint --src 'src/**' --tests 'test/**'",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ../async/app.js"
   },
   "repository": {
@@ -24,8 +24,5 @@
     "redis": "^2.8.0",
     "request": "^2.85.0",
     "socket.io": "^2.1.0"
-  },
-  "devDependencies": {
-    "sonarlint": "^1.1.0"
   }
 }

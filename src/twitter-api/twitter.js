@@ -9,7 +9,7 @@ var app = express();
 const host = '127.0.0.1';
 const port = 3000;
 
-showTweets = (name, pathUrl, query, response) => {
+const showTweets = (name, pathUrl, query, response) => {
     const options = {
         protocol: 'https',
         host: 'api.twitter.com',
@@ -39,7 +39,7 @@ app.get('/tweets/topic/:name', (req, response) => {
 
 app.get('/tweets/:name', (req, response) => {
     const name = req.params.name;
-    showTweets(name, "/1.1/statuses/user_timeline.json", {screen_name: name, count: 2}, response);
+    showTweets(name, "/1.1/statuses/user_timeline.json", {screen_name: name, count: 10}, response);
 });
 
 app.listen(port, host, () => {
